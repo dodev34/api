@@ -1,0 +1,10 @@
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        'App\Entity\Client'
+    access_token_class:  'App\Entity\AccessToken'
+    refresh_token_class: 'App\Entity\RefreshToken'
+    auth_code_class:     'App\Entity\AuthCode'
+    service:
+        user_provider: fos_user.user_provider.username # This property will be used when valid credentials are given to load the user upon access token creation
+        options:
+          access_token_lifetime: 84600 # 24h
