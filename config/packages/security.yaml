@@ -56,7 +56,7 @@ security:
 
         # -> custom firewall for the Api
         api:
-            pattern:    '^/api/v1(.*)'
+            pattern:    '^/api/(.*)'
             fos_oauth:  true
             stateless:  true
             anonymous:  false # can be omitted as its default value
@@ -93,6 +93,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
     # Admin login page needs to be accessed without credential
+    - { path: '^/[^/]+/',  roles: [ IS_AUTHENTICATED_FULLY ] }
     - { path: ^/[^/]+/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/[^/]+/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/[^/]+/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -100,5 +101,5 @@ security:
     - { path: ^/[^/]+/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
 
     # OAuth / API
-    - { path: '^/[^/]+/',  roles: [ IS_AUTHENTICATED_FULLY ] }
-    - { path: ^/[^/]+/api/doc,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/[^/]+/api$,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/[^/]+/api/(.*),  roles: IS_AUTHENTICATED_FULLY }
