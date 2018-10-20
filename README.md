@@ -48,3 +48,7 @@ JSON Response for any request type
 ### Request API
 
 In your api queries, specify in the header 'Authorization' type 'Bearer' and the value of the token provided
+
+### Bundle for requested Any OAuth service
+
+[OAuth bundle client](https://github.com/dodev34/oauth-sdk-bundle)
