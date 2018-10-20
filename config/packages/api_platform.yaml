@@ -6,3 +6,5 @@ api_platform:
             apiKey:
                 name: Authorization
                 type: header
+    # Enable the FOSUserBundle integration.
+    enable_fos_user: true
